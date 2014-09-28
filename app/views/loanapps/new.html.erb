@@ -1,36 +1,12 @@
 <h1>New Loan Application</h1>
-<%= form_for :loanapp do |f| %>
-  <p>
-    <%= f.label :jméno %><br>
-    <%= f.text_field :jméno %>
-  </p>
 
-    <p>
-    <%= f.label :příjmení %><br>
-    <%= f.text_field :příjmení %>
-  </p>
+<%= form_for @loanapp do |f| %>
 
-    <p>
-    <%= f.label :telefon %><br>
-    <%= f.text_field :telefon %>
-  </p>
+<%= render "#{@loanapp.current_step}_step", :f => f %>
  
   <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-
-    <p>
-    <%= f.label :adresa %><br>
-    <%= f.text_field :adresa %>
-  </p>
-
-    <p>
-    <%= f.label :psč %><br>
-    <%= f.text_field :psč %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
+    <%= f.submit "Odeslat žádost" %>
   </p>
 <% end %>
+
+<p><%= link_to "Back to List", loanapps_path %></p>
